@@ -7,6 +7,51 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="stylesheet.css">
     <link rel="icon" href="Husky.ico">
+    <style>
+        .abstract {
+            display: none;
+            margin-top: 10px;
+            padding: 10px 15px;
+            background-color: #f0f0f0;
+            border-radius: 4px;
+            font-size: 14px;
+            line-height: 1.4;
+            color: #333;
+        }
+        .abstract.show {
+            display: block;
+        }
+        .abstract-toggle {
+            margin-right: 15px;
+            padding: 4px 8px;
+            background-color: #f0f0f0;
+            border-radius: 4px;
+            font-size: 14px;
+            color: #1772d0;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        .abstract-toggle:hover {
+            background-color: #e0e0e0;
+            color: #f09228;
+        }
+        
+        /* Dark theme support for abstracts */
+        @media (prefers-color-scheme: dark) {
+            .abstract {
+                background-color: #333;
+                color: white;
+            }
+            .abstract-toggle {
+                background-color: #333;
+                color: #1772d0;
+            }
+            .abstract-toggle:hover {
+                background-color: #444;
+                color: #f09228;
+            }
+        }
+    </style>
     <script type="text/javascript">
         function start(id) {
             var element1 = document.getElementById(id + "_1");
@@ -23,6 +68,19 @@
             if (element1 && element2) {
                 element1.style.opacity = "1";
                 element2.style.opacity = "0";
+            }
+        }
+
+        function toggleAbstract(id) {
+            var abstract = document.getElementById('abstract_' + id);
+            var toggle = document.getElementById('toggle_' + id);
+            
+            if (abstract.classList.contains('show')) {
+                abstract.classList.remove('show');
+                toggle.textContent = 'Abstract';
+            } else {
+                abstract.classList.add('show');
+                toggle.textContent = 'Hide Abstract';
             }
         }
     </script>
@@ -96,6 +154,10 @@
                 <div class="pub-links">
                     <a href="downloads/papers/jointmagimucalibration.pdf">pdf</a>
                     <a href="https://github.com/Huang-Chuan/Mag-IMU-JointCalibration">code</a>
+                    <span class="abstract-toggle" id="toggle_1" onclick="toggleAbstract(1)">abstract</span>
+                </div>
+                <div class="abstract" id="abstract_1">
+                    <strong>Abstract:</strong> This paper presents a new approach for jointly calibrating magnetometers and inertial measurement units, focusing on improving calibration accuracy and computational efficiency. The proposed method formulates the calibration problem as a maximum a posteriori estimation problem, treating both the calibration parameters and orientation trajectory of the sensors as unknowns. This formulation enables efficient optimization with closed-form derivatives. The performance of the proposed method is compared against that of two state-of-the-art approaches. Simulation results demonstrate that the proposed method achieves lower root mean square error in calibration parameters while maintaining competitive computational efficiency. Further validation through real-world experiments confirms the practical benefits of our approach: it effectively reduces position drift in a magnetic field-aided inertial navigation system by more than a factor of two on most datasets. Moreover, the proposed method calibrated 30 magnetometers in less than 2 minutes. The contributions include a new calibration method, an analysis of existing methods, and a comprehensive empirical evaluation. Datasets and algorithms are made publicly available to promote reproducible research. 
                 </div>
             </div>
         </article>
@@ -117,6 +179,10 @@
                 <div class="pub-venue">IEEE/ION PLANS 2025, 2025</div>
                 <div class="pub-links">
                     <a href="downloads/papers/OntheConnection.pdf">pdf</a>
+                    <span class="abstract-toggle" id="toggle_2" onclick="toggleAbstract(2)">abstract</span>
+                </div>
+                <div class="abstract" id="abstract_2">
+                    <strong>Abstract:</strong> Magnetic-field simultaneous localization and mapping (SLAM) using consumer-grade inertial and magnetometer sensors offers a scalable, cost-effective solution for indoor localization. However, the rapid error accumulation in the inertial navigation process limits the feasible exploratory phases of these systems. Advances in magnetometer array processing have demonstrated that odometry information, i.e., displacement and rotation information, can be extracted from local magnetic field variations and used to create magnetic-field odometry-aided inertial navigation systems. The error growth rate of these systems is significantly lower than that of standalone inertial navigation systems. This study seeks an answer to whether a magnetic-field SLAM system fed with measurements from a magnetometer array can indirectly extract odometry information --- without requiring algorithmic modifications --- and thus sustain longer exploratory phases. The theoretical analysis and simulation results show that such a system can extract odometry information and indirectly create a magnetic field odometry-aided inertial navigation system during the exploration phases. However, practical challenges related to map resolution and computational complexity remain significant.
                 </div>
             </div>
         </article>
@@ -138,6 +204,10 @@
                 <div class="pub-venue">Diva, 2024</div>
                 <div class="pub-links">
                     <a href="downloads/papers/Chuan_LicentiateThesis.pdf">pdf</a>
+                    <span class="abstract-toggle" id="toggle_3" onclick="toggleAbstract(3)">abstract</span>
+                </div>
+                <div class="abstract" id="abstract_3">
+                    <strong>Abstract:</strong> Localization and navigation technologies have become integral to modern society, playing crucial roles in daily life. They enable efficient and safe travel, allow emergency services to reach and assist individuals quickly, and are indispensable components of autonomous systems. Indoor localization technology, aimed at enabling precise location determination in indoor environments, has garnered significant research interest. One intriguing research direction is magnetic field-based localization technology, which exploits spatial variations in indoor magnetic fields to provide position information.
                 </div>
             </div>
         </article>
@@ -163,6 +233,10 @@
                 <div class="pub-links">
                     <a href="downloads/papers/OC_MAINS.pdf">pdf</a>
                     <a href="https://github.com/Huang-Chuan/OC-MAINS-code">code</a>
+                    <span class="abstract-toggle" id="toggle_4" onclick="toggleAbstract(4)">abstract</span>
+                </div>
+                <div class="abstract" id="abstract_4">
+                    <strong>Abstract:</strong> Maintaining consistent uncertainty estimates in localization systems is crucial as the perceived uncertainty commonly affects high-level system components, such as control or decision processes. A method for constructing an observability-constrained magnetic field-aided inertial navigation system is proposed to address the issue of erroneous yaw observability, which leads to inconsistent estimates of yaw uncertainty. The proposed method builds upon the previously proposed observability-constrained extended Kalman filter and extends it to work with a magnetic field-based odometry-aided inertial navigation system. The proposed method is evaluated using simulation and real-world data, showing that (i) the system observability properties are preserved, (ii) the estimation accuracy increases, and (iii) the perceived uncertainty calculated by the EKF is more consistent with the true uncertainty of the filter estimates.
                 </div>
             </div>
         </article>
@@ -185,6 +259,10 @@
                 <div class="pub-links">
                     <a href="downloads/papers/MAINS.pdf">pdf</a>
                     <a href="https://github.com/Huang-Chuan/MAINSvsMAGEKF">code</a>
+                    <span class="abstract-toggle" id="toggle_5" onclick="toggleAbstract(5)">abstract</span>
+                </div>
+                <div class="abstract" id="abstract_5">
+                    <strong>Abstract:</strong> A magnetic-field-aided inertial navigation system (MAINS) for indoor navigation is proposed in this article. MAINS leverages an array of magnetometers to measure spatial variations in the magnetic field, which are then used to estimate the displacement and orientation changes of the system, thereby aiding the inertial navigation system (INS). Experiments show that MAINS significantly outperforms the stand-alone INS, demonstrating the remarkable two orders of magnitude reduction in position error. Furthermore, when compared with the state-of-the-art magnetic-field-aided navigation approach, the proposed method exhibits slightly improved horizontal position accuracy. On the other hand, it has noticeably larger vertical error on datasets with large magnetic-field variations. However, one of the main advantages of MAINS compared with the state of the art is that it enables flexible sensor configurations. The experimental results show that the position error after 2 min of navigation in most cases is less than 3 m when using an array of 30 magnetometers. Thus, the proposed navigation solution has the potential to solve one of the key challenges faced with current magnetic-field simultaneous localization and mapping (SLAM) solutions—the very limited allowable length of the exploration phase during which unvisited areas are mapped.
                 </div>
             </div>
         </article>
@@ -207,6 +285,10 @@
                 <div class="pub-links">
                     <a href="downloads/papers/ATightlyIntegrated.pdf">pdf</a>
                     <a href="https://github.com/Huang-Chuan/magnetic-field-odometry">code</a>
+                    <span class="abstract-toggle" id="toggle_6" onclick="toggleAbstract(6)">abstract</span>
+                </div>
+                <div class="abstract" id="abstract_6">
+                    <strong>Abstract:</strong> A tightly integrated magnetic-field aided inertial navigation system is presented. The system uses a magnetometer sensor array to measure spatial variations in the local magnetic-field. The variations in the field are - via a recursively updated polynomial magnetic-field model - mapped into displacement and orientation changes of the array, which in turn are used to aid the inertial navigation system. Simulation results show that the resulting navigation system has three orders of magnitude lower position error at the end of a 40 seconds trajectory as compared to a standalone inertial navigation system. Thus, the proposed navigation solution has the potential to solve one of the key challenges faced with current magnetic-field simultaneous localization and mapping (SLAM) systems - the very limited allowable length of the exploration phase during which unvisited areas are mapped.
                 </div>
             </div>
         </article>
