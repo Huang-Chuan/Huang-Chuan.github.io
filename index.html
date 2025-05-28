@@ -139,9 +139,9 @@
         <!-- Publication 1 -->
         <article class="publication">
             <div class="pub-image">
-                <a href="images/err_real.jpg">
-                    <img src="images/err_real.jpg" alt="Joint Magnetometer-IMU Calibration">
-                </a>
+                <!-- <a href="images/err_real.jpg"> -->
+                    <img src="images/err_real.jpg" alt="Joint Magnetometer-IMU Calibration" onclick="openModal(this)">
+                <!-- </a> -->
             </div>
             <div class="pub-content">
                 <a href="https://arxiv.org/pdf/2505.16662" class="pub-title">
@@ -165,9 +165,9 @@
         <!-- Publication 2 -->
         <article class="publication">
             <div class="pub-image">
-                <a href="images/MAINSvsSLAM.jpg">
-                    <img src="images/MAINSvsSLAM.jpg" alt="Magnetic-Field Odometry vs SLAM">
-                </a>
+                <!-- <a href="images/MAINSvsSLAM.jpg"> -->
+                    <img src="images/MAINSvsSLAM.jpg" alt="Magnetic-Field Odometry vs SLAM" onclick="openModal(this)">
+                <!-- </a> -->
             </div>
             <div class="pub-content">
                 <a href="https://arxiv.org/pdf/2503.04286" class="pub-title">
@@ -190,9 +190,9 @@
         <!-- Publication 3 -->
         <article class="publication">
             <div class="pub-image">
-                <a href="images/LicFont.jpg">
-                    <img src="images/LicFont.jpg" alt="Licentiate Thesis">
-                </a>
+                <!-- <a href="images/LicFont.jpg"> -->
+                    <img src="images/LicFont.jpg" alt="Licentiate Thesis" onclick="openModal(this)">
+                <!-- </a> -->
             </div>
             <div class="pub-content">
                 <a href="https://liu.diva-portal.org/smash/record.jsf?pid=diva2%3A1895229&dswid=623" class="pub-title">
@@ -215,9 +215,9 @@
         <!-- Publication 4 -->
         <article class="publication">
             <div class="pub-image">
-                <a href="images/yaw_cov.jpg">
-                    <img src="images/yaw_cov.jpg" alt="Observability-Constrained MAINS">
-                </a>
+                <!-- <a href="images/yaw_cov.jpg"> -->
+                    <img src="images/yaw_cov.jpg" alt="Observability-Constrained MAINS" onclick="openModal(this)">
+                <!-- </a> -->
             </div>
             <div class="pub-content">
                 <a href="https://ieeexplore.ieee.org/document/10786170" class="pub-title">
@@ -244,9 +244,9 @@
         <!-- Publication 5 -->
         <article class="publication">
             <div class="pub-image">
-                <a href="images/MAINS.jpg">
-                    <img src="images/MAINS.jpg" alt="MAINS System">
-                </a>
+                <!-- <a href="images/MAINS.jpg"> -->
+                    <img src="images/MAINS.jpg" alt="MAINS System" onclick="openModal(this)">
+                <!-- </a> -->
             </div>
             <div class="pub-content">
                 <a href="https://ieeexplore.ieee.org/document/10480297" class="pub-title">
@@ -270,9 +270,9 @@
         <!-- Publication 6 -->
         <article class="publication">
             <div class="pub-image">
-                <a href="images/field_visionen.JPG">
-                    <img src="images/field_visionen.JPG" alt="Tightly-Integrated System">
-                </a>
+                <!-- <a href="images/field_visionen.JPG"> -->
+                    <img src="images/field_visionen.JPG" alt="Tightly-Integrated System" onclick="openModal(this)">
+                <!-- </a> -->
             </div>
             <div class="pub-content">
                 <a href="https://ieeexplore.ieee.org/document/9841304" class="pub-title">
@@ -309,6 +309,59 @@
         <script type="text/javascript" id="clstr_globe" src="//clustrmaps.com/globe.js?d=DobhVtHzhkWB7MO_JxK6fupVOh5nCPVbb9C-d-v6x0E"></script>
     </section>
 </div>
+
+
+
+
+    <!-- Modal -->
+    <div id="imageModal" class="modal" onclick="closeModal()">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <div class="modal-content">
+            <img id="modalImage" src="" alt="">
+        </div>
+    </div>
+
+    <!-- JavaScript goes here -->
+    <script>
+        function openModal(img) {
+            const modal = document.getElementById('imageModal');
+            const modalImg = document.getElementById('modalImage');
+            
+            modal.style.display = 'block';
+            modalImg.src = img.src;
+            modalImg.alt = img.alt;
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('imageModal');
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeModal();
+            }
+        });
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 </body>
 </html>
